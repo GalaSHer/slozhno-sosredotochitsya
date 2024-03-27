@@ -1,12 +1,38 @@
-/*
-  Специально для светлой темы при наличии класса.
-  Здесь окажутся стили, которые нужно переопределить принудительно,
-  переключая тему
-*/
+:root .theme_light {
+  --bg-color: #fff1f7;
+  --accent-color: #ff8dcb;
+  --accent-decor-color: #353430;
+  --title-text-color: #ffc2e6;
+  --main-text-color: #353430;
+  --accent-text-color: #353430;
+  --font-family: IBM Plex mono, sans-serif;
+  --accent-decor-color-opacity04: rgba(50, 49, 45, 0.4);
+}
 
 .page.theme_light {
-  /* сохраните этот селектор в приведённом виде.
-    Так стили написанные ниже будут иметь больший вес,
-    чем стили в медиазапросе предпочтений пользователя
-  */
+  background-image: url(../images/cover-image-light.png);
+}
+
+.page.theme_light .rec {
+  display: none;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-color: #fff1f7;
+    --accent-color: #ff8dcb;
+    --accent-decor-color: #353430;
+    --title-text-color: #ffc2e6;
+    --main-text-color: #353430;
+    --accent-text-color: #353430;
+    --font-family: IBM Plex mono, sans-serif;
+  }
+
+  .page {
+    background-image: url(../images/cover-image-light.png);
+  }
+
+  .page .rec {
+    display: none;
+  }
 }

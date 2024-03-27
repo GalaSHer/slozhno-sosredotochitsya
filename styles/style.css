@@ -1,5 +1,362 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
+/*common styles*/
 .page {
-  /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  padding: 10px;
+  color: var(--main-text-color);
+  font-family: var(--font-family);
+  font-size: 18px;
+  background-color: var(--bg-color);
+  background-image: url(../images/cover-image-dark.png);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+@media (min-width: 768px) {
+  .page {
+    padding: 20px;
+  }
+}
+
+.decorated-zone {
+  position: relative;
+  min-block-size: 97vh;
+}
+
+@media (min-width: 768px) {
+  .decorated-zone {
+    min-block-size: 96vh;
+  }
+}
+
+@media (min-width: 1024px) {
+  .decorated-zone {
+    min-block-size: 94.7vh;
+  }
+}
+
+.decorated-zone::before,
+.decorated-zone::after {
+  content: "";
+  position: absolute;
+  inline-size: 25px;
+  block-size: 25px;
+}
+
+.decorated-zone::before {
+  bottom: 0;
+  left: 0;
+  border-inline-start: solid 1px var(--accent-decor-color);
+  border-block-end: solid 1px var(--accent-decor-color);
+}
+
+.decorated-zone::after {
+  top: 0;
+  right: 0;
+  border-inline-end: solid 1px var(--accent-decor-color);
+  border-block-start: solid 1px var(--accent-decor-color);
+}
+
+.title-decor {
+  color: var(--accent-text-color);
+  font-weight: 700;
+  line-height: 23.4px;
+  background-color: var(--accent-color);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding: 50px 0;
+}
+
+@media (min-width: 768px) {
+  .main {
+    gap: 80px;
+    padding: 80px 0;
+  }
+}
+
+.link {
+  text-decoration: none;
+  text-shadow: 2px 2px 0 var(--accent-color);
+}
+
+.link:hover {
+  border-block-end: 1px solid var(--main-text-color);
+  outline: 0;
+  cursor: pointer;
+}
+
+.link:focus {
+  outline: 0;
+}
+
+.link:focus-visible {
+  outline: 1px solid var(--main-text-color);
+}
+
+/*header*/
+
+.header {
+  display: grid;
+  grid-template-rows: auto max-content auto;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .header {
+    grid-template-rows: auto;
+  }
+}
+
+.rec {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rec::before {
+  content: "REC";
+  color: var(--accent-decor-color);
+  line-height: 1.3em;
+}
+
+.rec::after {
+  content: "";
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin-right: 8px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 4px 2px var(--accent-decor-color);
+  background-color: var(--accent-decor-color);
+}
+
+.header__theme-menu {
+  justify-self: end;
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-block-start: 12px;
+}
+
+@media (min-width: 1024px) {
+  .header__theme-menu {
+    justify-self: center;
+    align-self: flex-start;
+  }
+
+  .header__theme-menu-list {
+    flex-direction: row;
+    gap: 12px;
+    margin-block-start: 0;
+  }
+}
+
+.header__theme-menu-button {
+  border: none;
+  padding: 2px 12px;
+  color: var(--accent-decor-color);
+  line-height: 1em;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.header__theme-menu-button_active {
+  border: solid 1px var(--accent-decor-color);
+  pointer-events: none;
+}
+
+.header__theme-menu-button:hover {
+  outline: 1px solid var(--accent-decor-color-opacity04);
+}
+
+.header__theme-menu-button:focus {
+  outline: 0;
+}
+.header__theme-menu-button:focus-visible {
+  border-block-end: 1px solid var(--accent-decor-color);
+  outline: 0;
+}
+
+.header_title {
+  margin-block-start: 12px;
+  color: var(--title-text-color);
+  font-weight: 700;
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  line-height: 0.825em;
+  text-shadow: 4px 4px 0px var(--accent-color);
+}
+
+.header__description {
+  justify-self: end;
+  max-width: 355px;
+}
+
+@media (min-width: 768px) {
+  .header_title {
+    margin-inline-start: -20px;
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .header__description {
+    max-width: 364px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header_title {
+    margin-block-start: 95px;
+  }
+
+  .header__description {
+    max-width: 491px;
+    margin-block-end: 55px;
+  }
+}
+
+/* all sections styles */
+
+.section {
+  display: grid;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .section-column-title {
+    display: grid;
+    grid-template-columns: 236px 1fr;
+  }
+
+  .section_title {
+    max-width: calc(100vw / 3.3);
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-column-title {
+    display: grid;
+    grid-template-columns: 315px 1fr;
+  }
+
+  .section-column-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .section_title {
+    max-width: calc(100vw / 3);
+  }
+}
+
+.section_list-item:not(:last-child) {
+  margin-block-end: 20px;
+}
+
+.section_title {
+  color: var(--accent-decor-color);
+  font-size: 1em;
+  line-height: 1.3em;
+}
+
+.section_list-title {
+  margin-block-end: 20px;
+  font-size: 1em;
+  line-height: 1.3em;
+}
+
+.section_list-item-title {
+  font-size: 1em;
+}
+
+.h4-title-decor {
+  color: var(--accent-text-color);
+  font-weight: 400;
+  line-height: 23.4px;
+  background-color: var(--accent-color);
+}
+
+.section_list-item-text {
+  margin-block-start: 10px;
+  line-height: 1.3em;
+}
+
+
+/* section "gallery" */
+.section_gallery {
+  display: grid;
+  gap: 10px;
+}
+
+@media (min-width: 768px) {
+  .section_gallery {
+    gap: 20px;
+  }
+}
+
+.gallery {
+  display: grid;
+  gap: 10px;
+  min-block-size: 200vh;
+}
+
+.image {
+  object-fit: cover;
+  object-position: center;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+@media (min-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 25% 30% 41%;
+    gap: 20px;
+    min-block-size: 76vh;
+  }
+
+  .wide-image {
+    grid-column: span 2;
+  }
+
+  .long-image {
+    grid-row: span 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gallery {
+    min-block-size: 136vh;
+  }
+}
+
+
+/*footer*/
+.footer {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.footer__title {
+  color: var(--title-text-color);
+  font-weight: 700;
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  line-height: 0.825em;
+  text-shadow: 2px 2px 0px var(--accent-color, #ff0070);
+}
+
+@media (min-width: 768px) {
+  .footer__title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
 }

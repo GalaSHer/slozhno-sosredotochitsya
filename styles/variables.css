@@ -1,4 +1,11 @@
-/*
-  Переменные для вашего проекта
-  и их переопределение под различные устройства
-*/
+:root {
+  --bg-color: #000028;
+  --accent-color: #FF0070;
+  --accent-decor-color: #FF0070;
+  --accent-text-color: #000028;
+  --title-text-color: #DB00FF;
+  --main-text-color: #F1B2CE;
+  --font-family: IBM Plex mono, sans-serif;
+  --accent-decor-color-opacity04: rgba(255, 0, 112, 0.4);
+}
+
