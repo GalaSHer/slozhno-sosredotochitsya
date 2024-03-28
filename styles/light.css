@@ -26,6 +26,7 @@
     --main-text-color: #353430;
     --accent-text-color: #353430;
     --font-family: IBM Plex mono, sans-serif;
+    --accent-decor-color-opacity04: rgba(50, 49, 45, 0.4);
   }
 
   .page {
@@ -34,5 +35,9 @@
 
   .page .rec {
     display: none;
+  }
+
+  .page.theme_dark .rec {
+    display: flex;
   }
 }
